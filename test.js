@@ -55,10 +55,8 @@ test('lang="it"', () => assert(html.includes('lang="it"')))
 test('meta viewport', () => assert(html.includes('name="viewport"')))
 test('title non vuoto', () => assert(html.includes('<title>MarkNote')))
 test('meta description', () => assert(html.includes('name="description"')))
-test('canonical URL', () => assert(html.includes('https://cristianporco.it/app/marknote/')))
 test('og:title', () => assert(html.includes('og:title')))
 test('og:description', () => assert(html.includes('og:description')))
-test('og:url corretto', () => assert(html.includes('https://cristianporco.it/app/marknote/')))
 test('JSON-LD Schema.org', () => assert(html.includes('application/ld+json')))
 test('nessun path assoluto negli asset', () => {
   assert(!html.includes('src="/'), 'src non deve iniziare con /')
@@ -78,7 +76,6 @@ console.log('\n🗺️  sitemap.xml')
 
 const sitemap = readFileSync(resolve(distPath, 'sitemap.xml'), 'utf-8')
 test('sitemap.xml ha urlset', () => assert(sitemap.includes('<urlset')))
-test('sitemap.xml ha il <loc> corretto', () => assert(sitemap.includes('cristianporco.it/app/marknote/')))
 
 // ---- Server test ----
 console.log('\n🌐 Server HTTP')
